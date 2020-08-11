@@ -2,6 +2,8 @@
 
 ## Concepts
 
+### Overview
+
 > Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track metrics, which are variables you can measure for your resources and applications.
 
 -AWS-[What Is Amazon CloudWatch?](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
@@ -96,5 +98,40 @@
 
 -AWS-[Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html)
 
+> With Amazon CloudWatch, there is no up-front commitment or minimum fee; you simply pay for what you use. You will be charged at the end of the month for your usage.
+
+### Pricing
+
+> Free Tier
+
+* Basic Monitoring Metrics (at 5-minute frequency)
+
+* 10 Detailed Monitoring Metrics (at 1-minute frequency)
+
+* 1 Million API requests (not applicable to GetMetricData and GetMetricWidgetImage)
+
+* 10 Alarm metrics (not applicable to high-resolution alarms)
+
+> All custom metrics charges are prorated by the hour and metered only when you send metrics to CloudWatch. Metric / month:
+
+* First 10,000 metrics: $0.30
+
+&nbsp;
+
+> API
+
+* GetMetricStatistics, ListMetrics, PutMetricData, GetDashboard, ListDashboards, PutDashboard and DeleteDashboards requests: $0.01 per 1,000 requests
+
+> Alarms: Alarm / month
+
+* Standard Resolution (60 sec): $0.10 per alarm metric
+
 ## Exercises
 
+TODO:
+
+By default, Amazon EC2 sends metric data to CloudWatch in 5-minute periods. To send metric data for your instance to CloudWatch in 1-minute periods, you can enable detailed monitoring on the instance.
+
+-AWS-Monitoring your instances using CloudWatch
+
+note: Collecting more system-level metrics, e.g., memory and disk utilization, and logs requires installing and configuring the CloudWatch Agent.
