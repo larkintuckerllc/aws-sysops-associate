@@ -64,7 +64,7 @@
 
 > For metrics produced by certain AWS services, such as Amazon EC2, CloudWatch can aggregate data across dimensions.
 
-&nbsp;
+**note:** Personal observation. This is done by creating additional aggregate Metrics.
 
 > Statistics are metric data aggregations over specified periods of time.
 
@@ -94,11 +94,13 @@
 
 &nbsp;
 
-> When creating an alarm, select an alarm monitoring period that is greater than or equal to the metric's monitoring period. 
+> When creating an alarm, select an alarm monitoring period that is greater than or equal to the metric's monitoring period.
 
 -AWS-[Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html)
 
 > With Amazon CloudWatch, there is no up-front commitment or minimum fee; you simply pay for what you use. You will be charged at the end of the month for your usage.
+
+**note:** A Cloud Guru; supports on-premise.
 
 ### Pricing
 
@@ -128,10 +130,14 @@
 
 ## Exercises
 
-TODO:
+### Basic EC2 Monitoring Metrics
 
-By default, Amazon EC2 sends metric data to CloudWatch in 5-minute periods. To send metric data for your instance to CloudWatch in 1-minute periods, you can enable detailed monitoring on the instance.
+Create EC2 instance and observe Metrics using AWS CLI and Console
 
--AWS-Monitoring your instances using CloudWatch
+### Additional EC2 Metrics (CloudWatch Agent)
 
-note: Collecting more system-level metrics, e.g., memory and disk utilization, and logs requires installing and configuring the CloudWatch Agent.
+Enable CloudWatch Agent and observe additional Metrics.
+
+### Alarm
+
+TODO
