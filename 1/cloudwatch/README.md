@@ -140,4 +140,4 @@ Enable CloudWatch Agent and observe additional Metrics.
 
 ### Alarm
 
-TODO
+Create an alarm on CPUUtilization with a SNS topic.  Trigger alarm.
