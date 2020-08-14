@@ -102,6 +102,8 @@
 
 **note:** A Cloud Guru; supports on-premise.
 
+> Amazon CloudWatch dashboards are customizable home pages in the CloudWatch console that you can use to monitor your resources in a single view, even those resources that are spread across different Regions. You can use CloudWatch dashboards to create customized views of the metrics and alarms for your AWS resources.
+
 ### Pricing
 
 > Free Tier
