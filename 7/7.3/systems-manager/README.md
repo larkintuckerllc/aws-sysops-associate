@@ -48,6 +48,18 @@
 
 There is standard (free) and advanced (paid, allows for policies).
 
+> Actions & Change
+
+* Use Systems Manager Automation to automate common maintenance and deployment tasks. You can use Automation to create and update Amazon Machine Images, apply driver and agent updates, reset passwords on Windows Server instance, reset SSH keys on Linux instances, and apply OS patches or application updates.
+
+TODO
+
+> Instances & Nodes
+
+TODO
+
+* Use Systems Manager Run Command to remotely and securely manage the configuration of your managed instances at scale. Use Run Command to perform on-demand changes like updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances.
+
 ## Exercises
 
 ### Run QuickSetup
@@ -72,3 +84,79 @@ Need to grant ability for Instance to be able to use key. Also need user setting
 
 aws ssm get-parameters --region us-east-1 --names HelloSecure --with-decryption
 
+### Run Ansible Playbooks Directly
+
+/etc/ansible/hosts
+[example]
+3.85.139.26
+
+ping.yml
+---
+- hosts: example
+  remote_user: ec2-user
+  tasks:
+  - name: ping hosts
+    ping:
+
+ansible-playbook ping.yml
+
+upgrade.yml
+---
+- hosts: example
+  become: yes
+  remote_user: ec2-user
+  tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+
+### Use Systems Manager Run Command
+
+Run AWS-UpdateSSMAgent; target Resource Group and output to CloudWatch
+
+Observe results in CloudWatch
+
+### Run Ansible Playbooks using System Manager
+
+Create Bucket for Ansible playbook files.
+
+Grant read access to EC2 Instance to access S3 Bucket; upload files:
+(not just getobject)
+
+ping-run-command.yml
+---
+- hosts: all
+  remote_user: ec2-user
+  tasks:
+  - name: ping hosts
+    ping:
+
+upgrade-run-command.yml
+---
+- hosts: all
+  become: yes
+  remote_user: ec2-user
+  tasks:
+    - name: upgrade all packages
+      yum:
+        name: '*'
+        state: latest
+
+Run Command:
+AWS-ApplyAnsiblePlaybooks
+
+Check
+"False"
+ExtraVariables
+"SSM=True"
+InstallDependencies
+"True"
+PlaybookFile
+"upgrade-run-command.yml"
+SourceInfo
+"{ "path": "https://s3.amazonaws.com/ansible-todosrus" }"
+SourceType
+"S3"
+Verbose
+"-v"
