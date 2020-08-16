@@ -52,17 +52,41 @@ There is standard (free) and advanced (paid, allows for policies).
 
 * Use Systems Manager Automation to automate common maintenance and deployment tasks. You can use Automation to create and update Amazon Machine Images, apply driver and agent updates, reset passwords on Windows Server instance, reset SSH keys on Linux instances, and apply OS patches or application updates.
 
-TODO
+* Change Calendar lets you set up date and time ranges when actions you specify (for example, in Systems Manager Automation documents) may or may not be performed in your AWS account.
+
+* Use Maintenance Windows to set up recurring schedules for managed instances to run administrative tasks like installing patches and updates without interrupting business-critical operations.
+
+**note:** More generalized to other services than State Manager; does the same thing.
 
 > Instances & Nodes
 
-TODO
+* Use Systems Manager Configuration Compliance to scan your fleet of managed instances for patch compliance and configuration inconsistencies.
+
+* Inventory Manager automates the process of collecting software inventory from managed instances. You can use Inventory Manager to gather metadata about applications, files, components, patches, and more on your managed instances.
+
+* A managed instance is any EC2 instance or on-premises machine–a server or a virtual machine (VM)–in your hybrid environment that is configured for Systems Manager.
+
+**note:** Marketing screen.
+
+* To set up servers and VMs in your hybrid environment as managed instances, you need to create a managed-instance activation. After you complete the activation, you receive an activation code and ID. This code/ID combination functions like an Amazon EC2 access ID and secret key to provide secure access to the Systems Manager service from your managed instances.
+
+* Use Session Manager to manage your EC2 instances through an interactive one-click browser-based shell or through the AWS CLI.
 
 * Use Systems Manager Run Command to remotely and securely manage the configuration of your managed instances at scale. Use Run Command to perform on-demand changes like updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of instances.
+
+* Use Systems Manager State Manager to automate the process of keeping your managed instances in a defined state. You can use State Manager to ensure that your instances are bootstrapped with specific software at startup, joined to a Windows domain (Windows Server instances only), or patched with specific software updates.
+
+**note:** Items are called Associations
+
+* Use Patch Manager to automate the process of patching your managed instances with both security related and other types of updates.
+
+* Use Distributor to create and deploy packages to managed instances. Distributor lets you package your own software—or find AWS-provided agent software packages, such as AmazonCloudWatchAgent—to install on AWS Systems Manager managed instances.
 
 ## Exercises
 
 ### Run QuickSetup
+
+### Use Session Manager to Login to EC2
 
 ### Setup a CloudWatch Dashboard
 
@@ -160,3 +184,12 @@ SourceType
 "S3"
 Verbose
 "-v"
+
+### Create Maintainence Window to Run Uprade
+
+Schedule, Targets, and Task
+Same Ansible playbook
+
+### Use State Manager to Run Upgrade
+
+Switch to using State Manager; same as Maint. Window but done in one shot.
