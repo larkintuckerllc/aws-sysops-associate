@@ -83,6 +83,18 @@ Outputs:
 
 > The optional Transform section specifies one or more macros that AWS CloudFormation uses to process your template. The Transform section builds on the simple, declarative language of AWS CloudFormation with a powerful macro system.
 
+&nbsp;
+
+> Use the AWS::Include transform, which is a macro hosted by AWS CloudFormation, to insert boilerplate content into your templates. The AWS::Include transform lets you create a reference to a template snippet in an Amazon S3 bucket. When Creating a change set or Updating stacks using change sets, and the templates reference AWS::Include, AWS CloudFormation inserts the contents of the specified file at the location of the transform in the template. The AWS::Include function behaves similarly to an include, copy, or import directive in programming languages.
+
+&nbsp;
+
+> Use the AWS::SecretsManager transform, which is a macro hosted by AWS CloudFormation, to specify a Lambda function to perform secrets rotation.
+
+&nbsp;
+
+> The AWS::Serverless transform, which is a macro hosted by AWS CloudFormation, takes an entire template written in the AWS Serverless Application Model (AWS SAM) syntax and transforms and expands it into a compliant AWS CloudFormation template.
+
 ### Best Practice
 
 > A layered architecture organizes stacks into multiple horizontal layers that build on top of one another, where each layer has a dependency on the layer directly below it. You can have one or more stacks in each layer, but within each layer, your stacks should have AWS resources with similar lifecycles and ownership.
@@ -98,6 +110,10 @@ Outputs:
 &nbsp;
 
 > After you have your stacks and resources set up, you can reuse your templates to replicate your infrastructure in multiple environments. For example, you can create environments for development, testing, and production so that you can test changes before implementing them into production. To make templates reusable, use the parameters, mappings, and conditions sections so that you can customize your stacks when you create them.
+
+&nbsp;
+
+> As your infrastructure grows, common patterns can emerge in which you declare the same components in each of your templates. You can separate out these common components and create dedicated templates for them. That way, you can mix and match different templates but use nested stacks to create a single, unified stack. Nested stacks are stacks that create other stacks. To create nested stacks, use the AWS::CloudFormation::Stack resource in your template to reference other templates.
 
 &nbsp;
 
