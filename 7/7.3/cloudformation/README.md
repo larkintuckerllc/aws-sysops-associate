@@ -149,6 +149,12 @@ Outputs:
 
 * A unique identifier for each target resource. Visit the appropriate service console to obtain unique identifiers.
 
+### Custom Resources
+
+Custom resources enable you to write custom provisioning logic in templates that AWS CloudFormation runs anytime you create, update (if you changed the custom resource), or delete stacks. For example, you might want to include resources that aren't available as AWS CloudFormation resource types. You can include those resources by using custom resources. That way you can still manage all your related resources in a single stack.
+
+Use the AWS::CloudFormation::CustomResource or Custom::MyCustomResourceTypeName resource type to define custom resources in your templates. Custom resources require one property: the service token, which specifies where AWS CloudFormation sends requests to, such as an Amazon SNS topic.
+
 ## Exercises
 
 ### Hello
